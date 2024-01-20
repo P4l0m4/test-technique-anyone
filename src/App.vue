@@ -1,36 +1,22 @@
-<template>
-  <div class="max-w-lg mx-auto py-20">
-    <div class="flex items-center gap-2">
-      <div class="bg-gray-300 rounded-full w-14 h-14"></div>
-      <div>
-        <label for="hours-old">{{ student.name }} is</label>
-        <div class="flex gap-2">
-          <input
-            v-model="student.age"
-            name="hours-old"
-            id="hours-old"
-            class="border-b-gray-300 border-b w-[50px]"
-            type="number"
-          />
-          <div class="text">hours old</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
+import AgeInput from './components/AgeInput.vue'
 
 const student = reactive<{
   name: string
-  age: number | null
+  age: string | null
   image: string | null
 }>({
   name: 'Hugh',
   age: null,
-  image: null,
+  image: 'https://img.fruugo.com/product/0/95/223178950_max.jpg',
 })
+const handleAgeUpdate = (newAge: string) => {
+  student.age = newAge
+}
 </script>
-
-<style></style>
+<template>
+  <div class="max-w-lg mx-auto p-4 flex-col gap-16">
+    <AgeInput :student="student" @update="handleAgeUpdate" />
+  </div>
+</template>
