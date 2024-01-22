@@ -87,7 +87,7 @@ function handleInput(e: Event) {
 .student-age-input {
   min-width: 72px;
   max-width: 220px;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
   outline: #d9d5e6 solid 2px;
   border-radius: 4px;
   font-family: 'Inter', sans-serif;
